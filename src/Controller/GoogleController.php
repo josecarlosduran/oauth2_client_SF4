@@ -6,6 +6,8 @@ namespace App\Controller;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -37,7 +39,9 @@ class GoogleController extends AbstractController
         if (!$this->getUser()) {
             return new JsonResponse(array('status' => false, 'message' => "User not found!"));
         } else {
-            return $this->redirectToRoute('default');
+            $user = $this->getUser();
+            dump($user);
+            return new Response("<html><body></body></html>");
         }
 
     }
