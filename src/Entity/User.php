@@ -26,6 +26,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $fullname;
+    
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $facebookId;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $photoURL;
 
     /**
      * @ORM\Column(type="datetime")
@@ -57,6 +67,30 @@ class User implements UserInterface
     public function setFullname(string $fullname): self
     {
         $this->fullname = $fullname;
+
+        return $this;
+    }
+
+    public function getFacebookId(): ?string
+    {
+        return $this->facebookId;
+    }
+
+    public function setFacebookId(string $facebookId): self
+    {
+        $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    public function getPhotoURL(): ?string
+    {
+        return $this->photoURL;
+    }
+
+    public function setPhotoURL(string $photoURL): self
+    {
+        $this->photoURL = $photoURL;
 
         return $this;
     }

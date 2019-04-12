@@ -40,8 +40,7 @@ class GoogleController extends AbstractController
             return new JsonResponse(array('status' => false, 'message' => "User not found!"));
         } else {
             $user = $this->getUser();
-            dump($user);
-            return new Response("<html><body></body></html>");
+            return $this->render('base.html.twig');
         }
 
     }
